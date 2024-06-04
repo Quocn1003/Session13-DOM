@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tậpt</title>
+</head>
+
+<body>
+    <h1>Bài 1:</h1>
+    <h2>This is text.</h2>
+    <button onclick="hideText()">Hide text</button>
+    <button onclick="showText()">Show text</button>
+
+    <h1>Bài 2:</h1>
+    <textarea id="textarea"></textarea><br>
+    <div class="keyboard">
+        <div class="row row1">
+            <button onclick="addText('Q')">Q</button>
+            <button onclick="addText('W')">W</button>
+            <button onclick="addText('E')">E</button>
+            <button onclick="addText('R')">R</button>
+            <button onclick="addText('T')">T</button>
+            <button onclick="addText('Y')">Y</button>
+            <button onclick="addText('U')">U</button>
+            <button onclick="addText('I')">I</button>
+            <button onclick="addText('O')">O</button>
+            <button onclick="addText('P')">P</button>
+        </div>
+        <div class="row row2">
+            <button onclick="addText('A')">A</button>
+            <button onclick="addText('S')">S</button>
+            <button onclick="addText('D')">D</button>
+            <button onclick="addText('F')">F</button>
+            <button onclick="addText('G')">G</button>
+            <button onclick="addText('H')">H</button>
+            <button onclick="addText('J')">J</button>
+            <button onclick="addText('K')">K</button>
+            <button onclick="addText('L')">L</button>
+        </div>
+        <div class="row row3">
+            <button onclick="addText('Z')">Z</button>
+            <button onclick="addText('X')">X</button>
+            <button onclick="addText('C')">C</button>
+            <button onclick="addText('V')">V</button>
+            <button onclick="addText('B')">B</button>
+            <button onclick="addText('N')">N</button>
+            <button onclick="addText('M')">M</button>
+        </div>
+    </div>
+
+    <h1>Bài 3:</h1>
+    <ul id="nameList">
+
+    </ul>
+
+    <h1>Bài 4:</h1>
+    <input id="inputItem" type="text">
+    <button onclick="addItem()">add item</button>
+    <ul id="item">
+
+    </ul>
+
+    <script>
+        function hideText() {
+            document.getElementsByTagName("h2")[0].innerText = " ";
+        }
+        function showText() {
+            document.getElementsByTagName("h2")[0].innerText = "This is text.";
+        }
+
+        function addText(letter) {
+            const textarea = document.getElementById("textarea");
+            textarea.value += letter;
+        }
+
+        let names = ["nguyen", "nam", "thu"];
+        function renderName() {
+            let text = "";
+            for (let i = 0; i < names.length; i++) {
+                text += `<li>${names[i]}</li>`
+            }
+            document.getElementById("nameList").innerHTML = text;
+        }
+        renderName();
+
+        function addItem() {
+            let item = document.getElementById("inputItem").value;
+            document.getElementById("item").innerHTML += `<li>${item}</li>`
+        }
+    </script>
+</body>
+
+</html>
